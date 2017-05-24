@@ -2,6 +2,6 @@
 {
     public enum AnimalState
     {
-        
+        Sated, Hungry, Sick, Dead
     }
 }

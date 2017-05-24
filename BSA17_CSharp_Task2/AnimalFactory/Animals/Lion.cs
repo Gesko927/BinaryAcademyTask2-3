@@ -1,7 +1,11 @@
-﻿namespace BSA17_CSharp_Task2.AnimalFactory
+﻿using BSA17_CSharp_Task2.AnimalFactory.Animals;
+
+namespace BSA17_CSharp_Task2.AnimalFactory
 {
-    public class LIon
+    public class Lion:Animal
     {
-        
+        public Lion(string name, int maxHealth) : base(name, maxHealth)
+        {
+        }
     }
 }

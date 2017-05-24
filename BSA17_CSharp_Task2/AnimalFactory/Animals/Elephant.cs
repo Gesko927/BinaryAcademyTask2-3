@@ -1,7 +1,9 @@
 ﻿namespace BSA17_CSharp_Task2.AnimalFactory.Animals
 {
-    public class Elephant
+    public class Elephant:Animal
     {
-        
+        public Elephant(string name, int maxHealth) : base(name, maxHealth)
+        {
+        }
     }
 }
