@@ -10,6 +10,10 @@ namespace BSA17_CSharp_Task2
     {
         static void Main(string[] args)
         {
+
+            byte c = 3;
+            Console.WriteLine(c);
+            
         }
     }
 }
