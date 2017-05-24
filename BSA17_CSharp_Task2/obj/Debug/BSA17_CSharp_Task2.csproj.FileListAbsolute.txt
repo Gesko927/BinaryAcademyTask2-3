@@ -1,0 +1,6 @@
+C:\Users\Gesko927\OneDrive\VisualProjects\BSA17_CSharp_Task2\BSA17_CSharp_Task2\bin\Debug\BSA17_CSharp_Task2.exe.config
+C:\Users\Gesko927\OneDrive\VisualProjects\BSA17_CSharp_Task2\BSA17_CSharp_Task2\bin\Debug\BSA17_CSharp_Task2.exe
+C:\Users\Gesko927\OneDrive\VisualProjects\BSA17_CSharp_Task2\BSA17_CSharp_Task2\bin\Debug\BSA17_CSharp_Task2.pdb
+C:\Users\Gesko927\OneDrive\VisualProjects\BSA17_CSharp_Task2\BSA17_CSharp_Task2\obj\Debug\BSA17_CSharp_Task2.csprojResolveAssemblyReference.cache
+C:\Users\Gesko927\OneDrive\VisualProjects\BSA17_CSharp_Task2\BSA17_CSharp_Task2\obj\Debug\BSA17_CSharp_Task2.exe
+C:\Users\Gesko927\OneDrive\VisualProjects\BSA17_CSharp_Task2\BSA17_CSharp_Task2\obj\Debug\BSA17_CSharp_Task2.pdb
