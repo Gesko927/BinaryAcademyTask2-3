@@ -42,11 +42,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimalFactory\Animals\Animal.cs" />
+    <Compile Include="AnimalFactory\Animals\AnimalState.cs" />
+    <Compile Include="AnimalFactory\Animals\Bear.cs" />
+    <Compile Include="AnimalFactory\Animals\Elephant.cs" />
+    <Compile Include="AnimalFactory\Animals\Fox.cs" />
+    <Compile Include="AnimalFactory\Animals\Lion.cs" />
+    <Compile Include="AnimalFactory\Animals\Tiger.cs" />
+    <Compile Include="AnimalFactory\Animals\Wolf.cs" />
+    <Compile Include="AnimalFactory\Creators\AnimalCreator.cs" />
+    <Compile Include="AnimalFactory\Creators\IAnimalCreator.cs" />
+    <Compile Include="Hunger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visitor.cs" />
+    <Compile Include="Zoo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Animals.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
