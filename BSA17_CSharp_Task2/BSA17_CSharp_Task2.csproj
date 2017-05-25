@@ -52,6 +52,7 @@
     <Compile Include="AnimalFactory\Animals\Wolf.cs" />
     <Compile Include="AnimalFactory\Creators\AnimalCreator.cs" />
     <Compile Include="AnimalFactory\Creators\IAnimalCreator.cs" />
+    <Compile Include="Hunger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Zoo.cs" />

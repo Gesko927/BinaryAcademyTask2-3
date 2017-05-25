@@ -16,6 +16,10 @@ namespace BSA17_CSharp_Task2
         {
             Animals = new List<Animal>();
             _animalCreator = new AnimalCreator();
+            Animals.Add(new Lion("Alex", 5));
+            Animals.Add(new Fox("Bobka", 3));
+            Animals.Add(new Bear("Misha", 6));
+            Animals.Add(new Wolf("Kafka", 5));
         }
 
         public void Add(string animalType, string name)
