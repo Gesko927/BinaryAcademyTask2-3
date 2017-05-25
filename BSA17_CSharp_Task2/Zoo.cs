@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using BSA17_CSharp_Task2.AnimalFactory;
 using BSA17_CSharp_Task2.AnimalFactory.Animals;
@@ -16,10 +17,7 @@ namespace BSA17_CSharp_Task2
         {
             Animals = new List<Animal>();
             _animalCreator = new AnimalCreator();
-            Animals.Add(new Lion("Alex", 5));
-            Animals.Add(new Fox("Bobka", 3));
-            Animals.Add(new Bear("Misha", 6));
-            Animals.Add(new Wolf("Kafka", 5));
+            this.InitZooFromFile("C:\\Users\\Gesko927\\OneDrive\\VisualProjects\\BSA17_CSharp_Task2\\BSA17_CSharp_Task2\\Animals.txt");
         }
 
         public void Add(string animalType, string name)
@@ -68,6 +66,23 @@ namespace BSA17_CSharp_Task2
                     Animals.Remove(animal);
                     Console.WriteLine($"Removed animal with name: {name}");
                 }
+            }
+        }
+
+        private void InitZooFromFile(string path)
+        {
+            if(File.Exists(path))
+            {
+                var s = File.ReadAllLines(path);
+                foreach (var animal in s)
+                {
+                    var str = animal.Split(' ');
+                    this.Add(str[0], str[1]);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Change path for file with animals data");
             }
         }
     }
