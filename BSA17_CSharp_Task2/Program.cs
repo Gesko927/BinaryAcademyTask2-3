@@ -21,8 +21,6 @@ namespace BSA17_CSharp_Task2
                 var choise = Convert.ToInt32(Console.ReadLine());
                 visitor.VisitorAction(choise);
             }
-
-            
         }
 
         private static void Menu()
