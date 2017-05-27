@@ -15,7 +15,7 @@
         public int Health { get; set; }
         public override string ToString()
         {
-            return $" --- Name: {Name}\t Health: {Health}\t State: {State.ToString()}";
+            return $"Name: {Name}\t Health: {Health}\t State: {State.ToString()}";
         }
     }
 }
