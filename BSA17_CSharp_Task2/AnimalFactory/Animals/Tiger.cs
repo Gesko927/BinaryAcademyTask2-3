@@ -10,7 +10,7 @@ namespace BSA17_CSharp_Task2.AnimalFactory
 
         public override string ToString()
         {
-            return GetType().Name + base.ToString();
+            return $"{GetType().Name}\t {base.ToString()}";
         }
     }
 }

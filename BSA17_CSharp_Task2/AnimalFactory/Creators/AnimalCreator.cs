@@ -25,7 +25,7 @@ namespace BSA17_CSharp_Task2.AnimalFactory.Creators
 
                 case "elephant":
                     {
-                        Animal = new Elephant(name, 7);
+                        Animal = new Slon(name, 7);
                     }
                     break;
 
