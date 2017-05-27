@@ -16,53 +16,99 @@ namespace BSA17_CSharp_Task2
             switch (choise)
             {
                 case 1:
-                {
-                    Console.WriteLine("Input type of animal: ");
-                    var animalType = Console.ReadLine();
-                    Console.WriteLine("Input animal`s name: ");
-                    var name = Console.ReadLine();
+                    {
+                        try
+                        {
+                            Console.WriteLine("Input kind of animal: ");
+                            var animalKind = Console.ReadLine();
+                            Console.WriteLine("Input animal`s name: ");
+                            var name = Console.ReadLine();
 
-                    if (animalType != null && name != null) Zoo.Add(animalType, name);
-                }
+                            if (animalKind != null && name != null)
+                            {
+                                Zoo.Add(animalKind, name);
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Input correct name or kind!");
+                        }
+                        Console.ReadKey();
+
+                    }
                     break;
 
                 case 2:
-                {
-                    Console.WriteLine("Input animal`s name: ");
-                    var name = Console.ReadLine();
+                    {
+                        Console.WriteLine("Input animal`s name: ");
 
-                    if (name != null) Zoo.Feed(name);
-                }
+                        try
+                        {
+                            var name = Console.ReadLine();
+                            if (name != null) Zoo.Feed(name);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Input correct name!");
+                        }
+                        Console.ReadKey();
+                    }
                     break;
 
                 case 3:
-                {
-                    Console.WriteLine("Input animal`s name: ");
-                    var name = Console.ReadLine();
+                    {
+                        Console.WriteLine("Input animal`s name: ");
 
-                    if (name != null) Zoo.Heal(name);
-                }
+                        try
+                        {
+                            var name = Console.ReadLine();
+                            if (name != null) Zoo.Heal(name);
+                            
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Input correct name!");
+                        }
+
+                        Console.ReadKey();
+                    }
                     break;
 
                 case 4:
-                {
-                    Console.WriteLine("Input animal`s name: ");
-                    var name = Console.ReadLine();
+                    {
+                        Console.WriteLine("Input animal`s name: ");
+                        try
+                        {
+                            var name = Console.ReadLine();
+                            if (name != null) Zoo.Remove(name);
+                            
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Input correct name!");
+                        }
 
-                    if (name != null) Zoo.Remove(name);
-                }
+                        Console.ReadKey();
+                    }
+                    break;
+
+                case 5:
+                    {
+                        Zoo.ShowAllAnimals();
+                        Console.ReadKey();
+                    }
                     break;
 
                 case 0:
-                {
-                    Environment.Exit(0);
-                }
+                    {
+                        Environment.Exit(0);
+                    }
                     break;
 
                 default:
-                {
-                    Console.WriteLine("Invalid choise. Try again!");
-                }
+                    {
+                        Console.WriteLine("Invalid choise. Try again!");
+                    }
                     break;
             }
         }

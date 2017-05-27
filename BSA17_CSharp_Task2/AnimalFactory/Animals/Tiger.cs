@@ -7,5 +7,10 @@ namespace BSA17_CSharp_Task2.AnimalFactory
         public Tiger(string name, int maxHealth) : base(name, maxHealth)
         {
         }
+
+        public override string ToString()
+        {
+            return GetType().Name + base.ToString();
+        }
     }
 }

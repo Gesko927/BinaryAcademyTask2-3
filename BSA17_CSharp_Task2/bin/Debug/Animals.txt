@@ -1,0 +1,4 @@
+﻿lion Alex
+fox Alina
+bear Misha
+elephant Kost

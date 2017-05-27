@@ -5,5 +5,9 @@
         public Wolf(string name, int maxHealth) : base(name, maxHealth)
         {
         }
+        public override string ToString()
+        {
+            return GetType().Name + base.ToString();
+        }
     }
 }

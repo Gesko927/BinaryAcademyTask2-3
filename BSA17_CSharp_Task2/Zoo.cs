@@ -17,7 +17,8 @@ namespace BSA17_CSharp_Task2
         {
             Animals = new List<Animal>();
             _animalCreator = new AnimalCreator();
-            this.InitZooFromFile("C:\\Users\\Gesko927\\OneDrive\\VisualProjects\\BSA17_CSharp_Task2\\BSA17_CSharp_Task2\\Animals.txt");
+            var path = Path.GetFullPath("Animals.txt");
+            this.InitZooFromFile(path);
         }
 
         public void Add(string animalType, string name)
@@ -28,44 +29,48 @@ namespace BSA17_CSharp_Task2
 
         public void Feed(string name)
         {
-            foreach (var animal in Animals)
+            var selectedAnimal = Animals.Where(animal => animal.Name == name).Select(animal =>
             {
-                if (animal.Name == name)
-                {
-                    animal.State = AnimalState.Sated;
-                    Console.WriteLine($"Fed animal with name: {name}");
-                }
-            }
+                animal.State = AnimalState.Sated;
+                return animal.Name;
+            }).SingleOrDefault();
+
+            Console.WriteLine(selectedAnimal != null ? $"Fed animal with name: {selectedAnimal}" : $"There is no animal with name: {name}");
+            Console.ReadKey();
         }
 
         public void Heal(string name)
         {
-            foreach (var animal in Animals)
-            {
-                if (animal.Name == name)
+            var selectedAnimal = Animals.Where(animal => animal.Name == name && animal.Health < animal.MaxHealth).Select(animal =>
                 {
-                    if (animal.Health < animal.MaxHealth)
-                    {
-                        ++animal.Health;
-                        Console.WriteLine($"Healed animal with name: {name}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Animal {name} is completely healthy");
-                    }
-                }
-            }
+                    animal.Health++;
+                    return animal.Name;
+                }).SingleOrDefault();
+
+            Console.WriteLine(selectedAnimal != null ? $"Healed animal with name: {selectedAnimal}" : $"There is no animal with name: {name}");
         }
 
         public void Remove(string name)
         {
+            var removedAnimal = Animals.Where(animals => animals.Name == name && animals.State == AnimalState.Dead)
+                .Select(animal => animal).SingleOrDefault();
+
+            if (removedAnimal != null)
+            {
+                Animals.Remove(removedAnimal);
+                Console.WriteLine($"Removed animal with name: {name}");
+            }
+            else
+            {
+                Console.WriteLine($"You can not remove animal with name: {name}");
+            }
+        }
+
+        public void ShowAllAnimals()
+        {
             foreach (var animal in Animals)
             {
-                if (animal.State == AnimalState.Dead)
-                {
-                    Animals.Remove(animal);
-                    Console.WriteLine($"Removed animal with name: {name}");
-                }
+                Console.WriteLine(animal);
             }
         }
 
