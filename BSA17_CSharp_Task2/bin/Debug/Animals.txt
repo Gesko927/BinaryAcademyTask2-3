@@ -1,4 +1,6 @@
 ﻿lion Alex
 fox Alina
 bear Misha
-elephant Kost
+tiger Wood
+wolf Serj
+elephant Kostya

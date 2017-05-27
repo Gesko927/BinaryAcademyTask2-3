@@ -1,8 +1,8 @@
 ﻿namespace BSA17_CSharp_Task2.AnimalFactory.Animals
 {
-    public class Fox:Animal
+    public class Slon:Animal
     {
-        public Fox(string name, int maxHealth) : base(name, maxHealth)
+        public Slon(string name, int maxHealth) : base(name, maxHealth)
         {
         }
 
