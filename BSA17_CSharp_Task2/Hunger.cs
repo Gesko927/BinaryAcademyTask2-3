@@ -33,12 +33,13 @@ namespace BSA17_CSharp_Task2
             }
             else if (_zoo.Animals[animalIndex].State == AnimalState.Sick)
             {
-                if (_zoo.Animals[animalIndex].Health > 0)
+                if (_zoo.Animals[animalIndex].Health > 1)
                 {
                     --_zoo.Animals[animalIndex].Health;
                 }
                 else
                 {
+                    --_zoo.Animals[animalIndex].Health;
                     _zoo.Animals[animalIndex].State = AnimalState.Dead;
                 }
             }
