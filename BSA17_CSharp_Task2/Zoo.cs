@@ -151,18 +151,8 @@ namespace BSA17_CSharp_Task2
 
         public void MaxHealthAnimalsPerKind()
         {
-            //var x = Animals.GroupBy(animal => animal.GetType()).
-            //    Select(g => new
-            //    {
-            //        Name = g.Key.Name,
-            //        MaxHealth = g.Max(animal => animal.Health)
-            //    });
             var y = Animals.GroupBy(x => x.GetType().Name)
-                .Select(animal => 
-                //{
-                //    Name = animal.Key,
-                    animal.Where(p=>p.Health == animal.Max(k=>k.Health)).Select(p=>p).SingleOrDefault()
-                );
+                .Select(animal => animal.Where(p=>p.Health == animal.Max(k=>k.Health)).Select(p=>p).SingleOrDefault());
 
             foreach (var animal in y)
             {
