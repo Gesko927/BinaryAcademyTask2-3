@@ -12,270 +12,271 @@ namespace BSA17_CSharp_Task2
             Zoo = new Zoo();
         }
 
+        #region LINQ Methods
+        private void AddAnimalInZoo()
+        {
+            Console.Clear();
+            try
+            {
+                Console.WriteLine("Input kind of animal: ");
+                var animalKind = Console.ReadLine();
+                Console.WriteLine("Input animal`s name: ");
+                var name = Console.ReadLine();
+
+                if (animalKind != null && name != null)
+                {
+                    Zoo.AddAnimal(animalKind, name);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Input correct name or kind!");
+            }
+            Console.ReadKey();
+        }
+        private void FeedAnimalInZoo()
+        {
+            Console.Clear();
+            Console.WriteLine("Input animal`s name: ");
+
+            try
+            {
+                var name = Console.ReadLine();
+                if (name != null) Zoo.FeedAnimal(name);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Input correct name!");
+            }
+            Console.ReadKey();
+        }
+        private void HealAnimalInZoo()
+        {
+            Console.Clear();
+            Console.WriteLine("Input animal`s name: ");
+
+            try
+            {
+                var name = Console.ReadLine();
+                if (name != null) Zoo.HealAnimal(name);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Input correct name!");
+            }
+
+            Console.ReadKey();
+        }
+        private void RemoveAnimalInZoo()
+        {
+            Console.Clear();
+            Console.WriteLine("Input animal`s name: ");
+            try
+            {
+                var name = Console.ReadLine();
+                if (name != null) Zoo.RemoveAnimal(name);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Input correct name!");
+            }
+
+            Console.ReadKey();
+        }
+        private void ShowAllAnimalsInZoo()
+        {
+            Console.Clear();
+            foreach (var animal in Zoo.GetAnimalList())
+            {
+                Console.WriteLine(animal);
+            }
+            Console.ReadKey();
+        }
+        private void ShowAnimalsWithState()
+        {
+            Console.Clear();
+            Console.WriteLine("1) Sated");
+            Console.WriteLine("2) Hungry");
+            Console.WriteLine("3) Sick");
+            Console.WriteLine("4) Dead");
+
+            try
+            {
+                var num = Convert.ToInt32(Console.ReadLine());
+                AnimalState state = AnimalState.Sated;
+                bool res = false;
+
+                switch (num)
+                {
+                    case 1:
+                    {
+                        state = AnimalState.Sated;
+                        res = true;
+                    }
+                        break;
+
+                    case 2:
+                    {
+                        state = AnimalState.Hungry;
+                        res = true;
+                    }
+                        break;
+
+                    case 3:
+                    {
+                        state = AnimalState.Sick;
+                        res = true;
+                    }
+                        break;
+
+                    case 4:
+                    {
+                        state = AnimalState.Dead;
+                        res = true;
+                    }
+                        break;
+
+                    default:
+                        res = false;
+                        break;
+
+                }
+
+                if (res)
+                {
+                    foreach (var animal in Zoo.AnimalsWithState(state))
+                    {
+                        Console.WriteLine(animal);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Input correct number!");
+            }
+            Console.ReadKey();
+        }
+        private void ShowElephant()
+        {
+            Console.Clear();
+            Console.WriteLine("Input elephant`s name:");
+            var name = Console.ReadLine();
+            Console.WriteLine(Zoo.ShowElephant(name));
+            Console.ReadKey();
+        }
+        private void ShowSickTigers()
+        {
+            Console.Clear();
+            foreach (var animal in Zoo.AllSickTigers())
+            {
+                Console.WriteLine(animal);
+            }
+            Console.ReadKey();
+        }
+        private void ShowHungryAnimalsNames()
+        {
+            Console.Clear();
+            foreach (var animal in Zoo.HungryAnimalsNames())
+            {
+                Console.WriteLine(animal);
+            }
+            Console.ReadKey();
+        }
+        private void GroupByKind()
+        {
+            Console.Clear();
+            Zoo.GroupAllAnimalsByKind();
+            Console.ReadKey();
+        }
+        private void MaxHealthAnimals()
+        {
+            Console.Clear();
+            foreach (var animal in Zoo.MaxHealthAnimalsPerKind())
+            {
+                Console.WriteLine(animal);
+            }
+            Console.ReadKey();
+        }
+        private void DeadAnimalsPerKind()
+        {
+            Console.Clear();
+            Zoo.DeadAnimalsPerKind();
+            Console.ReadKey();
+        }
+        private void ShowWolvesAndBears()
+        {
+            Console.Clear();
+            Console.WriteLine("Input health:");
+            try
+            {
+                var health = Convert.ToInt32(Console.ReadLine());
+
+                foreach (var animal in Zoo.AllWolvesAndBearsWithHealth(health))
+                {
+                    Console.WriteLine(animal);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Input correct number of health");
+            }
+            Console.ReadKey();
+        }
+        private void ShowAverageHealthInZoo()
+        {
+            Console.Clear();
+            Console.WriteLine($"Average health: {Zoo.AverageHealthAnimals()}");
+            Console.ReadKey();
+        }
+        private void ShowMinAndMaxHealthAnimals()
+        {
+            Console.Clear();
+            Zoo.ShowMaxAndMinHealthAnimals();
+            Console.ReadKey();
+        }
+        #endregion
+
         public void VisitorAction(int choise)
         {
             switch (choise)
             {
-                case 1:
-                    {
-                        Console.Clear();
-                        try
-                        {
-                            Console.WriteLine("Input kind of animal: ");
-                            var animalKind = Console.ReadLine();
-                            Console.WriteLine("Input animal`s name: ");
-                            var name = Console.ReadLine();
+                #region 15 Cases
 
-                            if (animalKind != null && name != null)
-                            {
-                                Zoo.AddAnimal(animalKind, name);
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            Console.WriteLine("Input correct name or kind!");
-                        }
-                        Console.ReadKey();
+                case 1: AddAnimalInZoo(); break;
 
-                    }
-                    break;
+                case 2: FeedAnimalInZoo(); break;
 
-                case 2:
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Input animal`s name: ");
+                case 3: HealAnimalInZoo(); break;
 
-                        try
-                        {
-                            var name = Console.ReadLine();
-                            if (name != null) Zoo.FeedAnimal(name);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine("Input correct name!");
-                        }
-                        Console.ReadKey();
-                    }
-                    break;
+                case 4: RemoveAnimalInZoo(); break;
 
-                case 3:
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Input animal`s name: ");
+                case 5: ShowAllAnimalsInZoo(); break;
 
-                        try
-                        {
-                            var name = Console.ReadLine();
-                            if (name != null) Zoo.HealAnimal(name);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine("Input correct name!");
-                        }
+                case 6: GroupByKind(); break;
 
-                        Console.ReadKey();
-                    }
-                    break;
+                case 7: ShowAnimalsWithState(); break;
 
-                case 4:
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Input animal`s name: ");
-                        try
-                        {
-                            var name = Console.ReadLine();
-                            if (name != null) Zoo.RemoveAnimal(name);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine("Input correct name!");
-                        }
+                case 8: ShowSickTigers(); break;
 
-                        Console.ReadKey();
-                    }
-                    break;
+                case 9: ShowElephant(); break;
 
-                case 5:
-                    {
-                        Console.Clear();
-                        foreach (var animal in Zoo.GetAnimalList())
-                        {
-                            Console.WriteLine(animal);
-                        }
-                        Console.ReadKey();
-                    }
-                    break;
+                case 10: ShowHungryAnimalsNames(); break;
 
-                case 6:
-                    {
-                        Console.Clear();
-                        Zoo.GroupAllAnimalsByKind();
-                        Console.ReadKey();
-                    }
-                    break;
+                case 11: MaxHealthAnimals(); break;
 
-                case 7:
-                    {
-                        Console.Clear();
-                        Console.WriteLine("1) Sated");
-                        Console.WriteLine("2) Hungry");
-                        Console.WriteLine("3) Sick");
-                        Console.WriteLine("4) Dead");
+                case 12: DeadAnimalsPerKind(); break;
 
-                        try
-                        {
-                            var num = Convert.ToInt32(Console.ReadLine());
-                            AnimalState state = AnimalState.Sated;
-                            bool res = false;
+                case 13: ShowWolvesAndBears(); break;
 
-                            switch (num)
-                            {
-                                case 1:
-                                    {
-                                        state = AnimalState.Sated;
-                                        res = true;
-                                    }
-                                    break;
+                case 14: ShowMinAndMaxHealthAnimals(); break;
 
-                                case 2:
-                                    {
-                                        state = AnimalState.Hungry;
-                                        res = true;
-                                    }
-                                    break;
+                case 15: ShowAverageHealthInZoo(); break;
 
-                                case 3:
-                                    {
-                                        state = AnimalState.Sick;
-                                        res = true;
-                                    }
-                                    break;
+                case 0: Environment.Exit(0); break;
 
-                                case 4:
-                                    {
-                                        state = AnimalState.Dead;
-                                        res = true;
-                                    }
-                                    break;
+                #endregion
 
-                                default:
-                                    res = false;
-                                    break;
-
-                            }
-
-                            if (res)
-                            {
-                                foreach (var animal in Zoo.AnimalsWithState(state))
-                                {
-                                    Console.WriteLine(animal);
-                                }
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            Console.WriteLine("Input correct number!");
-                        }
-                        Console.ReadKey();
-                    }
-                    break;
-
-                case 8:
-                    {
-                        Console.Clear();
-                        foreach (var animal in Zoo.AllSickTigers())
-                        {
-                            Console.WriteLine(animal);
-                        }
-                        Console.ReadKey();
-                    }
-                    break;
-
-                case 9:
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Input elephant`s name:");
-                        var name = Console.ReadLine();
-                        Console.WriteLine(Zoo.ShowElephant(name));
-                        Console.ReadKey();
-                    }
-                    break;
-
-                case 10:
-                    {
-                        Console.Clear();
-                        foreach (var animal in Zoo.HungryAnimalsNames())
-                        {
-                            Console.WriteLine(animal);
-                        }
-                        Console.ReadKey();
-                    }
-                    break;
-
-                case 11:
-                    {
-                        Console.Clear();
-                        Zoo.MaxHealthAnimalsPerKind();
-                        Console.ReadKey();
-                    }
-                    break;
-
-                case 12:
-                    {
-                        Console.Clear();
-                        Zoo.DeadAnimalsPerKind();
-                        Console.ReadKey();
-                    }
-                    break;
-
-                case 13:
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Input health:");
-                        try
-                        {
-                            var health = Convert.ToInt32(Console.ReadLine());
-
-                            foreach (var animal in Zoo.AllWolvesAndBearsWithHealth(health))
-                            {
-                                Console.WriteLine(animal);
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            Console.WriteLine("Input correct number of health");
-                        }
-                        Console.ReadKey();
-                    }
-                    break;
-
-                case 14:
-                    {
-                        Console.Clear();
-                        Zoo.ShowMaxAndMinHealthAnimals();
-                        Console.ReadKey();
-                    }
-                    break;
-
-                case 15:
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"Average health: {Zoo.AverageHealthAnimals()}");
-                        Console.ReadKey();
-                    }
-                    break;
-
-                case 0:
-                    {
-                        Environment.Exit(0);
-                    }
-                    break;
-
-                default:
-                    {
-                        Console.WriteLine("Invalid choise. Try again!");
-                    }
-                    break;
+                default: Console.WriteLine("Invalid choise. Try again!"); break;
             }
         }
     }

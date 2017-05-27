@@ -19,7 +19,7 @@ namespace BSA17_CSharp_Task2
         IEnumerable<T> AllSickTigers();
         T ShowElephant(string name);
         IEnumerable<string> HungryAnimalsNames();
-        void MaxHealthAnimalsPerKind();
+        IEnumerable<T> MaxHealthAnimalsPerKind();
         void DeadAnimalsPerKind();
         IEnumerable<T> AllWolvesAndBearsWithHealth(int health);
         void ShowMaxAndMinHealthAnimals();

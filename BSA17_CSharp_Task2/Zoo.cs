@@ -119,13 +119,13 @@ namespace BSA17_CSharp_Task2
         {
             var query = Animals.GroupBy(animal => animal.GetType()).Select(animal => new
             {
-                Name = animal.Key.Name,
+                Kind = animal.Key.Name,
                 Count = animal.Count()
             });
 
             foreach (var animal in query)
             {
-                Console.WriteLine($"{animal.Name} - {animal.Count}");
+                Console.WriteLine($"{animal.Kind} - {animal.Count}");
             }
         }
 
@@ -149,15 +149,10 @@ namespace BSA17_CSharp_Task2
             return Animals.Where(animal => animal.State == AnimalState.Hungry).Select(animal => animal.Name);
         }
 
-        public void MaxHealthAnimalsPerKind()
+        public IEnumerable<Animal> MaxHealthAnimalsPerKind()
         {
-            var y = Animals.GroupBy(x => x.GetType().Name)
+            return Animals.GroupBy(x => x.GetType().Name)
                 .Select(animal => animal.Where(p=>p.Health == animal.Max(k=>k.Health)).Select(p=>p).SingleOrDefault());
-
-            foreach (var animal in y)
-            {
-                Console.WriteLine($"{animal}");
-            }
         }
 
         public void DeadAnimalsPerKind()
