@@ -18,10 +18,18 @@ namespace BSA17_CSharp_Task2
         {
             Animals = new List<Animal>();
             _animalCreator = new AnimalCreator();
-            var path = Path.GetFullPath("Animals.txt");
-            InitZooFromFile(path);
+            InitZooHardCode();
         }
 
+        private void InitZooHardCode()
+        {
+            AddAnimal("lion", "Alex");
+            AddAnimal("fox", "Alina");
+            AddAnimal("bear", "Misha");
+            AddAnimal("tiger", "Wood");
+            AddAnimal("wolf", "Serj");
+            AddAnimal("elephant", "Kostya");
+        }
         private void InitZooFromFile(string path)
         {
             if(File.Exists(path))
